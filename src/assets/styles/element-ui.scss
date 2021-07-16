@@ -1,0 +1,9 @@
+@import "./variables.scss";
+
+.el-menu{
+    background: $themeColor;
+}
+
+.el-menu--horizontal .el-menu .el-menu-item, .el-menu--horizontal .el-menu .el-submenu__title{
+    background: $themeColor;
+}

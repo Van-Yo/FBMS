@@ -1,0 +1,140 @@
+@import "./variables.scss";
+@import "./reset.css";
+@import "./element-ui.scss";
+
+/*flex 布局通用*/
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+.flex-row{
+    flex-direction: row;
+}
+
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+.flex-3 {
+    flex: 3;
+}
+
+.flex-4 {
+    flex: 4;
+}
+
+.flex-5 {
+    flex: 5;
+}
+
+.flex-6 {
+    flex: 6;
+}
+
+.flex-dc {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-ac {
+    display: flex;
+    align-items: center;
+}
+
+.flex-as {
+    display: flex;
+    align-items: flex-start;
+}
+
+.flex-ae {
+    display: flex;
+    align-items: flex-end;
+}
+
+.flex-pc {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-pe {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flex-ps {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.flex-pb {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-pa {
+    display: flex;
+    justify-content: space-around;
+}
+
+.flex-warp {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*浮动定位*/
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clear:after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+    font-size: 0;
+}
+
+.clear {
+    *zoom: 1;
+}
+
+/*一屏100%*/
+html,
+body {
+    height: 100%;
+    position: relative;
+}
+
+/*顶层路由样式*/
+#app {
+    height: 100%;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch; //优化ios 滚动卡顿和滚动穿透
+}
+
+
+.el-dialog__body{
+    .edit-footer{
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        text-align: center;
+    }
+}
+
