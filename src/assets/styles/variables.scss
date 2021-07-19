@@ -5,3 +5,35 @@ $homeBg: var(--homeBg); //主页背景
 $themeColor : #85B8CB;
 $brightColor : #1D6A96;
 $darkColor : #283B42;
+
+$themes :(
+    default :(
+        main-color:#85B8CB,
+    ),
+    light :(
+        main-color:#1D6A96,
+    )
+);
+
+/* 
+  使用demo 
+  .app-home {
+    font-size: 18px;
+    @include themeify {
+      color: themed('main-color');
+    }
+  }
+ */
+
+@mixin themeify {
+    @each $theme-name, $theme-map in $themes {
+        $theme-map: $theme-map !global;
+        [data-theme="#{$theme-name}"] & {
+            @content;
+        }
+    }
+}
+
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}

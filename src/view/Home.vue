@@ -13,7 +13,7 @@
                 >Aside</el-aside
             >
             <el-container>
-                <el-header>
+                <el-header class="flex-ac">
                     <!-- <router-link to="/index">首页</router-link>
                   <router-link to="/user">user</router-link> -->
                     <el-menu
@@ -22,7 +22,6 @@
                         mode="horizontal"
                         @select="handleSelect"
                         text-color="#fff"
-
                     >
                         <el-menu-item index="1"><router-link to="/index">首页</router-link></el-menu-item>
                         <el-submenu index="2">
@@ -35,6 +34,8 @@
                             ><router-link to="/user">user</router-link></el-menu-item
                         >
                     </el-menu>
+                    <el-button type="primary" @click="changeThemeType">一键换色</el-button>
+                    {{$store.state.themeType}}
                 </el-header>
                 <el-main>
                     <router-view></router-view>
@@ -55,9 +56,10 @@
 export default {
     data() {
         return {
-            showBeforePageFlag: true,
+            showBeforePageFlag: false,
             asideShowFlag: true,
             activeIndex: '1',
+            themeType:'default'
         };
     },
     created() {
@@ -72,6 +74,16 @@ export default {
         handleSelect(key, keyPath) {
             console.log(key, keyPath);
         },
+        changeThemeType(){
+            if(this.themeType == 'default'){
+                this.themeType = 'light'
+                this.$store.commit('changeThemeType','light')
+            }else{
+                this.themeType = 'default'
+                this.$store.commit('changeThemeType','default')
+            }
+            
+        }
     },
 };
 </script>
@@ -157,14 +169,19 @@ export default {
 }
 .el-header,
 .el-footer {
-    background-color: $themeColor;
+    @include themeify {
+      background-color: themed('main-color');
+    }
+    // background-color: $themeColor;
     color: #333;
     text-align: center;
     line-height: 60px;
 }
 
 .el-aside {
-    background-color: $themeColor;
+    @include themeify {
+      background-color: themed('main-color');
+    }
     color: #fff;
     text-align: center;
     line-height: 200px;

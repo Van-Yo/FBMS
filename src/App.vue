@@ -8,6 +8,9 @@
 
 export default {
   name: 'App',
+  created() {
+    this.$store.commit('changeThemeType', 'default');
+  }
 }
 </script>
 
